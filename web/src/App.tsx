@@ -8,7 +8,6 @@ import { CreateAdBanner } from './components/CreateAdBanner'
 import logo from './assets/logo-nlw-esports.svg'
 import { CreateAdModal } from './components/CreateAdModal';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 export interface Game {
   id: string;
@@ -40,13 +39,14 @@ export function App() {
 
       <div className="grid grid-cols-6 gap-6 mt-16">
         {games.map((game) => (
-          <Link to={`/games/${game.id}`} key={game.id}>
+          // <Link to={`/games/${game.id}`} key={game.id}>
             <GameBanner
               bannerUrl={game.bannerUrl}
               title={game.title}
               adsCount={game._count.ads}
+              key={game.id}
+              id={game.id}
             />
-          </Link>
         ))}
       </div>
 
