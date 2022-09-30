@@ -27,7 +27,7 @@ export const Games = () => {
   }, [])
 
   return (
-    <div className="max-w-[1344px] mx-auto my-20">
+    <div className="max-w-[1344px] mx-auto mt-20">
       <div className="flex items-center justify-evenly">
         <img src={location.state.bannerUrl} alt="Logo image" className="rounded-lg h-64" />
 
@@ -42,13 +42,19 @@ export const Games = () => {
         </div>
       </div>
 
-      <div>
-        {duos.map((duo) => (
+      <div className="flex mt-14 mx-16 gap-8">
+        {duos.length > 0 ? duos.map((duo) => (
           <DuoCard
             key={duo.id}
             data={duo}
           />
-        ))}
+        )) : 
+          <div className="text-center text-white m-auto mt-28 text-2xl">
+            <h1>
+              Não há anúncios publicados ainda.
+            </h1>
+          </div>
+        }
       </div>
     </div>
   )
