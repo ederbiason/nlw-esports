@@ -28,11 +28,11 @@ export const Games = () => {
 
   return (
     <div className="max-w-[1344px] mx-auto mt-20">
-      <div className="flex items-center justify-evenly">
+      <div className="flex items-center justify-evenly flex-col md:flex-row text-center">
         <img src={location.state.bannerUrl} alt="Logo image" className="rounded-lg h-64" />
 
         <div>
-          <h1 className="text-6xl text-white font-black mt-10">
+          <h1 className="text-6xl text-white font-black mt-10 mb-7 md:mb-0">
             Seu <span className="text-transparent bg-nlw-gradient bg-clip-text">duo</span> está aqui
           </h1>
 
