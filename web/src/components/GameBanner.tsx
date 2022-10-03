@@ -16,7 +16,7 @@ export const GameBanner = ({ bannerUrl, title, adsCount, id}: Props) => {
 
     return (
         <a href="" className="relative rounded-lg overflow-hidden"  onClick={() => goToGameAds()}>
-            <img src={bannerUrl} alt="" />
+            <img src={bannerUrl} alt="" className="w-[180px] h-[240px]" />
 
             <div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
                 <strong className="font-bold text-white block">
