@@ -42,7 +42,7 @@ export const Games = () => {
         </div>
       </div>
       
-      <div className="flex mt-14 mx-16 gap-8 mb-12 md:mb-0">
+      <div className="flex mt-14 mx-16 gap-8 mb-12 md:mb-0 flex-col md:flex-row items-center">
         {duos.length > 0 ? duos.map((duo) => (
           <DuoCard
             key={duo.id}
