@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import { CheckCircle, GameController, X } from "phosphor-react"
+import { CheckCircle, Copy, GameController, X } from "phosphor-react"
 import { DuoInfo } from "./DuoInfo"
 import { DuoCardProps } from "./Games"
 
@@ -42,8 +42,8 @@ export const DuoCard = ({ data }: Props) => {
           <Dialog.Overlay className="bg-black/60 inset-0 fixed" />
           
           <div className="relative">
-            <Dialog.Content className="fixed bg-[#2A2634] py-3 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[311px] shadow-lg shadow-black/25 flex flex-col items-center">
-              <Dialog.Title className="my-4">
+            <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[311px] shadow-lg shadow-black/25 flex flex-col items-center">
+              <Dialog.Title className="mb-6">
                 <CheckCircle size={84} className="text-emerald-400" />
               </Dialog.Title>
             
@@ -55,11 +55,20 @@ export const DuoCard = ({ data }: Props) => {
                 Agora é só começar a jogar!
               </Dialog.Title>
 
-              <Dialog.Title>
-                Adicone no Discord
-              </Dialog.Title>
+              <div className="text-center flex flex-col gap-2">
+                <Dialog.Title>
+                  Adicone no Discord
+                </Dialog.Title>
+                <div className="flex items-center justify-center gap-4 py-3 px-5 bg-zinc-900 rounded w-full">
+                  <span className="text-zinc-200 text-base">
+                    {data.discord}
+                  </span>
 
-              
+                  <button>
+                    <Copy size={20} />
+                  </button>
+                </div>
+              </div>
 
               <Dialog.Close className="absolute top-3 right-3">
                 <X className="text-zinc-500" size={20}/>

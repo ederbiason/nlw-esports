@@ -11,6 +11,7 @@ export interface DuoCardProps {
   useVoiceString: boolean;
   weeksDays: string[];
   yearsPlaying: number;
+  discord: string;
 }
 
 export const Games = () => {
