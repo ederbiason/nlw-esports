@@ -3,6 +3,8 @@ import { CheckCircle, Copy, GameController, X } from "phosphor-react"
 import { DuoInfo } from "./DuoInfo"
 import { DuoCardProps } from "./Games"
 
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
 interface Props {
   data: DuoCardProps
 }
@@ -59,14 +61,19 @@ export const DuoCard = ({ data }: Props) => {
                 <Dialog.Title>
                   Adicone no Discord
                 </Dialog.Title>
-                <div className="flex items-center justify-center gap-4 py-3 px-5 bg-zinc-900 rounded w-full">
-                  <span className="text-zinc-200 text-base">
-                    {data.discord}
-                  </span>
+                <div className="flex items-center justify-center py-2 px-4 bg-zinc-900 rounded-lg w-full">
+                  <input 
+                    className="text-zinc-200 text-base w-full text-center bg-zinc-900" 
+                    value={data.discord} 
+                    disabled 
+                    type="text" 
+                  />
 
-                  <button>
-                    <Copy size={20} />
-                  </button>
+                  <CopyToClipboard text={data.discord}>
+                    <button className="hover:bg-zinc-800 p-2 rounded flex items-center justify-center">
+                      <Copy size={20} />
+                    </button>
+                  </CopyToClipboard>
                 </div>
               </div>
 
