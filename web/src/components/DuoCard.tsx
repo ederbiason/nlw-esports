@@ -1,15 +1,26 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import { CheckCircle, Copy, GameController, X } from "phosphor-react"
+import { Check, CheckCircle, Copy, GameController, X } from "phosphor-react"
 import { DuoInfo } from "./DuoInfo"
 import { DuoCardProps } from "./Games"
 
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { useState } from 'react'
 
 interface Props {
   data: DuoCardProps
 }
 
 export const DuoCard = ({ data }: Props) => {
+  const [isCopied, setIsCopied] = useState<boolean>(false)
+
+  const handleCopyIcon = () => {
+    setIsCopied(true)
+
+    setInterval(() => {
+      setIsCopied(false)
+    }, 1500)
+  }
+
   return (
     <div className="text-white text-xl bg-[#2A2634] w-60 rounded-lg p-5 mr-4 flex flex-col gap-2">
       <DuoInfo
@@ -70,8 +81,13 @@ export const DuoCard = ({ data }: Props) => {
                   />
 
                   <CopyToClipboard text={data.discord}>
-                    <button className="hover:bg-zinc-800 p-2 rounded flex items-center justify-center">
-                      <Copy size={20} />
+                    <button 
+                      className={`hover:bg-zinc-800 p-2 rounded flex items-center justify-center ${isCopied ? 'border-[1px] border-emerald-400' : 'border-[1px] border-zinc-900'} focus:bg-zinc-800`} 
+                      onClick={handleCopyIcon}
+                    >
+                      {
+                        isCopied ? <Check size={20} className="text-emerald-400" /> : <Copy size={20} />
+                      }
                     </button>
                   </CopyToClipboard>
                 </div>
